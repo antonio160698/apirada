@@ -1,0 +1,41 @@
+{
+  "name": "apicodo",
+  "version": "1.0.0",
+  "description": "api para codo",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Daniel Escareño",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "express-passport-logout": "^0.1.0",
+    "express-session": "^1.15.4",
+    "jsend": "^1.0.2",
+    "jsonwebtoken": "^7.4.1",
+    "mssql": "^4.0.4",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "rand-token": "^0.3.0",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "nodemon": "^1.11.0"
+  }
+}
