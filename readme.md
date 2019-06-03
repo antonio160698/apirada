@@ -1,4 +1,3 @@
-
 # Nyx - api
 
 ## Getting Started
