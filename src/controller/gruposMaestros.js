@@ -5,8 +5,12 @@ exports.getHorarioMaestro = (req, res) => {
     sql.then(conn => {
             return conn.request()
                 .input('NumeroEmpleado',req.params.NumeroEmpleado)
-                .query('SELECT Grupo.HorarioID,Grupo.Grupo,Grupo.Materia,Grupo.SalonID,Grupo.Dia,Grupo.NombreEmpleado FROM Grupo INNER JOIN Horario ON grupo.HorarioID=Horario.HorarioID WHERE NumeroEmpleado=@NumeroEmpleado ORDER BY  Inicio;')
-                //.query('SELECT DISTINCT salon FROM ListasAsist WHERE empleado_clave=@NumeroEmpleado;')
+                //.query('SELECT Grupo.HorarioID,Grupo.Grupo,Grupo.Materia,Grupo.SalonID,Grupo.Dia,Grupo.NombreEmpleado FROM Grupo INNER JOIN Horario ON grupo.HorarioID=Horario.HorarioID WHERE NumeroEmpleado=@NumeroEmpleado ORDER BY  Inicio;')
+                .query(`SELECT DISTINCT salon,
+                grupo,
+				materia,
+                hora
+                FROM ListasDeAsistencias WHERE empleado_clave=@NumeroEmpleado order by materia`)
         })
         .then(grupoMaestros => {
             tamaño = grupoMaestros.recordset

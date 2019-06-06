@@ -6,23 +6,21 @@ exports.getIdentificadorEdificio = (req, res) => {
   sql.then(conn => {
       return conn.request()
         .input('Edificio', data.Edificio)
-        .input('hora', data.hora)
-        //.query("SELECT * FROM Grupo where Edificio = @Edificio AND HorarioID=@hora")
-        .query(`SELECT gps.Grupo,mta.Nombre,gps.PeriodoID,
-        hr.Nomenclatura,
-        gps.CantidadHoras,
-        gps.PlanEstudio,
-        gps.Dias,
-        gps.SalonID,
-        salon.Edificio,
-        gps.NumeroEmpleado,
-        gps.Nexus,
-        gps.InscripcionID
-      FROM Grupo gps
-      LEFT JOIN Materia mta ON gps.MateriaID = mta.ID
-      LEFT JOIN Salon salon ON gps.SalonID = salon.SalonID
-      LEFT JOIN Horario hr on gps.HorarioID = hr.ID
-      WHERE salon.Edificio = @Edificio and hr.Nomenclatura=@hora`)
+        .input('Hora', data.Hora)
+        .input('Dia', data.Dia)
+        .query(`select distinct
+        la.dia,
+        la.salon,
+        la.clave,
+        la.grupo,
+        la.hora,
+        la.materia,
+        sln.Edificio,
+        CONCAT((select SUM(asistencia) from AsistenciasAlumnos where grupo=la.salon and dia=la.dia and hora=la.hora) ,'/',(select COUNT(*) from ListasDeAsistencias where salon=la.salon and dia=la.dia and hora=la.hora)) as cupo
+        from	ListasDeAsistencias la
+        left join Salon sln on la.salon = sln.SalonID
+        where Edificio=@Edificio and hora=@Hora and dia=@Dia
+        order by salon`)
     })
     .then(Lista => {
       if (Lista.recordset.length > 0) {
@@ -35,9 +33,3 @@ exports.getIdentificadorEdificio = (req, res) => {
       }
     })
 }
-/*
-{
-	"Edificio":1,
-	"hora":"v2"
-}
-*/

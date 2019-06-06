@@ -16,7 +16,7 @@ module.exports = (app) => {
 
 	/* ----- Brigadistas ----- */
 
-	// -- identificaEdificio/ con cuerpo de json hora,edificio
+	// -- identificaEdificio/ con cuerpo de json hora,edificio y dia
 	app.post('/identificaEdificio', controllers.EdificioIdentificador.getIdentificadorEdificio);
 
 	/* ----- route ----- */
