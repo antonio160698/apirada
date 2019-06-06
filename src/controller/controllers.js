@@ -6,6 +6,7 @@ const assistance = require('./assistance')
 const  horario = require('./horario')
 const grupoMaestros = require('./gruposMaestros')
 const Lista = require('./ListasDeAsistencias')
+const EdificioIdentificador = require("./IdentificadorEdificio")
 
 module.exports = {
     route     : route,
@@ -15,5 +16,6 @@ module.exports = {
     assistance: assistance,
     horario : horario,
     grupoMaestros : grupoMaestros,
-    Lista : Lista
+    Lista : Lista,
+    EdificioIdentificador
 }

@@ -18,24 +18,24 @@
   "author": "Daniel Escareño",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "1.17.2",
-    "cors": "^2.8.4",
-    "express": "^4.15.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "express-passport-logout": "^0.1.0",
-    "express-session": "^1.15.4",
+    "express-session": "^1.16.1",
     "jsend": "^1.0.2",
-    "jsonwebtoken": "^7.4.1",
-    "mssql": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "mssql": "^4.3.7",
     "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1",
+    "passport-jwt": "^4.0.0",
     "rand-token": "^0.3.0",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "nodemon": "^1.11.0"
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "nodemon": "^1.19.1"
   }
 }

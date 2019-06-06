@@ -7,13 +7,14 @@ exports.getHorario = (req, res) => {
                 .input('matricula',req.params.matricula)
                 .query('SELECT * FROM ListasDeAsistencias WHERE matricula=@matricula;')
         })
-        .then(horarios => {
-            tamaño = horarios.recordset
-            if(tamaño.length > 0)
-            {
-                res.jsend.success(horarios.recordset)
-                } else{
-                    res.send(JSON.stringify({status: "error", message: "alumno no existe"}));
-                }           
-        })
+        .then(Lista => {
+            if (Lista.recordset.length > 0) {
+              res.jsend.success(Lista.recordset)
+            } else {
+              res.send(JSON.stringify({
+                status: "error",
+                message: "No existe un horario para esta matricula"
+              }));
+            }
+          })
 }
